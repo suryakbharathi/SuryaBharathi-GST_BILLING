@@ -20,4 +20,6 @@ ____________________________________________________________________
 
 3. Import the sql Database from the directory "DATABASE - SQL" file in your phpmyadmin .
         DataBase Name   :  surya_gst 
-        
+
+
+4. The ScreenShots of Project Works are in the folder "ScreenShots"        

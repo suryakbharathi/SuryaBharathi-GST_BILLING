@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { FirstpageService } from '../firstpage.service';
+import {ToolbarModule} from 'primeng/toolbar';  
+import * as $ from 'jquery';
+
+
 @Component({
   selector: 'app-firstpage',
   templateUrl: './firstpage.component.html',
@@ -14,6 +18,8 @@ export class FirstpageComponent implements OnInit {
   product_price: Number;
   product_gst: Number;
 
+  allentries;
+
   constructor(
     private router: Router,
     private FirstpageService: FirstpageService,
@@ -23,6 +29,7 @@ export class FirstpageComponent implements OnInit {
   }
 
   ngOnInit() {
+    //this.getAllProducts();
   }
 
   add_product(event){
@@ -32,6 +39,7 @@ export class FirstpageComponent implements OnInit {
     let product_price = this.product_price;
     let product_gst = this.product_gst;
     
+   
 
     let product = {
       "product_code": product_code,
@@ -46,6 +54,25 @@ export class FirstpageComponent implements OnInit {
       let res = response;
       console.log("added");
     }); 
+
+    this.product_code = "";
+    this.product_name = "";
+    this.product_price = 0;
+    this.product_gst = 0;
+
+   // this.getAllProducts();
+  }
+
+  getAllProducts() {
+    this.FirstpageService.getAllProducts().subscribe(
+      (res) => {
+        console.log(res[0]);
+        let response = res[0];
+        this.allentries = response;
+      },
+      (err) => console.log(err),
+      () => console.log('done!')
+    );
 
   }
 

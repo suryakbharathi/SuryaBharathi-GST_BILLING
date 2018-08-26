@@ -1,7 +1,7 @@
 {
   "name": "surya-server",
   "version": "1.0.0",
-  "description": "Surya Bharathi GST BILLIT SYSTEM - EXAMLY TASK",
+  "description": "SuryaBharathi K Billing System - Examply",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,10 +12,12 @@
     "hapi": "^17.5.3",
     "hapi-swagger": "^9.1.1",
     "inert": "^5.1.0",
-    "joi": "^13.6.0",
     "mysql": "^2.16.0",
-    "nodemon": "^1.18.3",
-    "relish": "^3.0.0",
-    "vision": "^5.4.0"
+    "mysql-promise": "^4.1.0",
+    "relish": "^0.2.5",
+    "vision": "^5.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.1"
   }
 }

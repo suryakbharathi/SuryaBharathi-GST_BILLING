@@ -15,6 +15,14 @@ export class FirstpageService {
   private serverURL = 'http://localhost:8000/';
   constructor(private http: HttpClient) { }
 
+  getAllProducts(): Observable<any> {
+    let specificUrl = this.serverURL + 'productget';
+    return this.http.get(specificUrl, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+
   post_product(product) {
     console.log("POST SERVICE WORKING!");
     let specificUrl = this.serverURL + 'productpost';

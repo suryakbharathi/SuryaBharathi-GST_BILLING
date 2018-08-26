@@ -8,6 +8,7 @@ import { RadioButtonModule } from 'primeng/components/radiobutton/radiobutton';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { TableModule } from 'primeng/table';
 
 import {SuryaRoutingModule } from './surya-routing/surya-routing.module';
 import { AppComponent } from './app.component';
@@ -33,7 +34,8 @@ import { HttpModule } from '@angular/http';
     ButtonModule,
     RadioButtonModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    TableModule
   ],
   providers: [FirstpageService],
   bootstrap: [AppComponent]

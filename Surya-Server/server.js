@@ -26,6 +26,7 @@ con.connect(function(err) {
     const server = await new Hapi.Server({
         host: 'localhost',
         port: 8000,
+        routes: { cors: true }
     });
     
     const swaggerOptions = {
@@ -63,7 +64,7 @@ server.route(
         let product_price = request.payload.product_price;
         let product_gst = request.payload.product_gst;
 
-            var sql = "INSERT INTO `product_list`(`product_code`, `product_name`, `product_price`, `product_gst`) ('"+product_code+"','"+product_name+"','"+product_price+"','"+product_gst+"')";
+            var sql = "INSERT INTO `product_list`(`product_code`, `product_name`, `product_price`, `product_gst`) VALUES ('"+product_code+"','"+product_name+"','"+product_price+"','"+product_gst+"')";
             
             con.query(sql, function (err, result) {
               if (err) throw err;
@@ -89,7 +90,49 @@ server.route(
 });
 
 
-    
+// All products get route
+/*server.route(
+    {
+    method:'GET',
+    path:'/productget',
+    config:{
+        handler: function (request, h)  {
+       con.query("SELECT * FROM `product_list`",
+       function (error, results, fields) {
+       if (error) throw error;
+
+       reply(results);
+    });
+  },
+        description: 'Get product data',
+        notes: 'product Get request',
+        tags: ['api'],
+        validate: {
+            failAction: Relish.failAction,
+        }   
+    }
+});*/
+server.route(
+    {
+    method:'GET',
+    path:'/productget',
+    config:{
+        handler: (request, h) =>{
+
+            let notes= con.query("SELECT * FROM `product_list`");
+            //console.log(notes);
+            return notes;
+        },
+        description: 'Get product data',
+        notes: 'product Get request',
+        tags: ['api'],
+        validate: {
+            failAction: Relish.failAction,
+        }   
+    }
+});
+
+  
     try {
         await server.start();
         console.log('Server running at:', server.info.uri);

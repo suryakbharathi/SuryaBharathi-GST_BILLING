@@ -20,7 +20,7 @@
       </div>
       <div class="form-group col-lg-12 col-md-12" style="padding:20px">
         <div class="ui-inputgroup">
-          
+            
           <input id="product_name" class="form-control " type="text" style="width:100%" pInputText placeholder="Product Name" [(ngModel)]="product_name"
             required>
         </div>
@@ -48,4 +48,34 @@
             class="fas fa-sync"></i></button>-->
       </div>
     </div>
+
+        <div class="ui-g-8 col-sm-12" style="margin-top:10px;">
+          <p-table [value]="allentries">
+            <ng-template pTemplate="header">
+              <tr>
+                <th style="text-align:center">Product_Code</th>
+                <th style="text-align:center">Product_Name</th>
+                <th style="text-align:center">Product_Price (₹)</th>
+                <th style="text-align:center">Product_Gst (%)</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </ng-template>
+            <br>
+            <ng-template pTemplate="body" let-meta>
+              <tr>
+                <td>{{meta.product_code}}</td>
+                <td>{{meta.product_name}}</td>
+                <td>{{meta.product_price}}</td>
+                <td>{{meta.product_gst}}</td>
+                <td style="text-align:center"><button pButton type="button" (click)="editProduct(meta)" label="Edit"><i class="fas fa-edit"></i></button></td>
+                <td style="text-align:center"><button class="ui-button-danger" pButton type="button" (click)="deleteProduct(meta)"
+                    label="Delete"><i class="far fa-trash-alt"></i></button></td>
+              </tr>
+            </ng-template>
+        
+          </p-table>
+        
+        </div>
+        
   </div>
