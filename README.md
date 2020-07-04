@@ -1,17 +1,17 @@
 # SuryaBharathi-GST_BILLING
 
-Name : Ramanan 
-Phone : 7708928751
+Name : Surya bharathi 
+Phone : 9500540722
 
 ____________________________________________________________________
 
-1. Ram-Design (FRONTEND) : 
+1. surya-Design (FRONTEND) : 
         npm install
         npm start
     ```       
    and open http://localhost:4200 in your browser to access the Web Application .
 
-2. Ram-Server (BackEnd)  : 
+2. surya-Server (BackEnd)  : 
 		npm install
         npm start
     ```       
